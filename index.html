@@ -306,16 +306,16 @@
             if (link)
                 return "<a href='" + link + "' target='_blank'>" + link + "</a>";
             else return "";
+        }	
+		
+		function format_status(link) {
+            if (link == "")
+                return "Em fila";
+            else return link;
         }
 		
-		function format_empty(link) {
-            if !(link)
-                return "Em fila";
-            else return "";
-        }		
-		
         CsvToHtmlTable.init({
-            csv_path: "data/desbloqueio_20230403.csv",
+            csv_path: "./data/desbloqueio_20230412.csv",
             element: "table-container",
             allow_download: false,
             csv_options: {
@@ -328,7 +328,7 @@
             },
             custom_formatting: [
                 [9, format_link],
-				[17, format_empty]
+				[17, format_status]
             ]
         });
     </script>

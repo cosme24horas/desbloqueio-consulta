@@ -308,6 +308,12 @@
             else return "";
         }
 		
+		function format_empty(link) {
+            if !(link)
+                return "Em fila";
+            else return "";
+        }		
+		
         CsvToHtmlTable.init({
             csv_path: "data/desbloqueio_20230403.csv",
             element: "table-container",
@@ -321,7 +327,8 @@
 				search: {smart: true}
             },
             custom_formatting: [
-                [9, format_link]
+                [9, format_link],
+				[17, format_empty]
             ]
         });
     </script>
